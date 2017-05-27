@@ -312,12 +312,10 @@ module.exports = [
   // Fenced code blocks
   {
     filter: function (node) {
-      return node.nodeName === 'PRE' &&
-      node.firstChild &&
-      node.firstChild.nodeName === 'CODE'
+      return node.nodeName === 'PRE'
     },
     replacement: function (content, node) {
-      return '\n\n```\n' + node.firstChild.textContent + '\n```\n\n'
+      return '\n\n```\n' + node.textContent + '\n```\n\n'
     }
   },
 
@@ -325,11 +323,10 @@ module.exports = [
   {
     filter: function (node) {
       return node.nodeName === 'PRE' &&
-      node.parentNode.nodeName === 'DIV' &&
-      highlightRegEx.test(node.parentNode.className)
+      node.getAttribute("lang")
     },
     replacement: function (content, node) {
-      var language = node.parentNode.getAttribute("lang")
+      var language = node.getAttribute("lang")
       return '\n\n```' + language + '\n' + node.textContent + '\n```\n\n'
     }
   },
