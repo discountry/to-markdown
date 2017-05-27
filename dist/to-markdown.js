@@ -233,7 +233,7 @@ toMarkdown.outer = outer
 
 module.exports = toMarkdown
 
-},{"./lib/gfm-converters":2,"./lib/html-parser":3,"./lib/md-converters":4,"collapse-whitespace":7}],2:[function(require,module,exports){
+},{"./lib/gfm-converters":2,"./lib/html-parser":3,"./lib/md-converters":4,"collapse-whitespace":6}],2:[function(require,module,exports){
 'use strict'
 
 function cell (content, node) {
@@ -329,7 +329,7 @@ module.exports = [
       highlightRegEx.test(node.parentNode.className)
     },
     replacement: function (content, node) {
-      var language = node.parentNode.className.match(highlightRegEx)[1]
+      var language = node.parentNode.getAttribute("lang")
       return '\n\n```' + language + '\n' + node.textContent + '\n```\n\n'
     }
   },
@@ -423,7 +423,7 @@ function shouldUseActiveX () {
 
 module.exports = canParseHtmlNatively() ? _window.DOMParser : createHtmlParser()
 
-},{"jsdom":6}],4:[function(require,module,exports){
+},{"jsdom":5}],4:[function(require,module,exports){
 'use strict'
 
 module.exports = [
@@ -577,52 +577,8 @@ module.exports = [
 ]
 
 },{}],5:[function(require,module,exports){
-/**
- * This file automatically generated from `build.js`.
- * Do not manually edit.
- */
-
-module.exports = [
-  "address",
-  "article",
-  "aside",
-  "audio",
-  "blockquote",
-  "canvas",
-  "dd",
-  "div",
-  "dl",
-  "fieldset",
-  "figcaption",
-  "figure",
-  "footer",
-  "form",
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
-  "header",
-  "hgroup",
-  "hr",
-  "main",
-  "nav",
-  "noscript",
-  "ol",
-  "output",
-  "p",
-  "pre",
-  "section",
-  "table",
-  "tfoot",
-  "ul",
-  "video"
-];
 
 },{}],6:[function(require,module,exports){
-
-},{}],7:[function(require,module,exports){
 'use strict';
 
 var voidElements = require('void-elements');
@@ -760,7 +716,52 @@ function next(prev, current) {
 
 module.exports = collapseWhitespace;
 
-},{"block-elements":5,"void-elements":8}],8:[function(require,module,exports){
+},{"block-elements":7,"void-elements":8}],7:[function(require,module,exports){
+/**
+ * This file automatically generated from `build.js`.
+ * Do not manually edit.
+ */
+
+module.exports = [
+  "address",
+  "article",
+  "aside",
+  "blockquote",
+  "canvas",
+  "dd",
+  "div",
+  "dl",
+  "dt",
+  "fieldset",
+  "figcaption",
+  "figure",
+  "footer",
+  "form",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "header",
+  "hgroup",
+  "hr",
+  "li",
+  "main",
+  "nav",
+  "noscript",
+  "ol",
+  "output",
+  "p",
+  "pre",
+  "section",
+  "table",
+  "tfoot",
+  "ul",
+  "video"
+];
+
+},{}],8:[function(require,module,exports){
 /**
  * This file automatically generated from `pre-publish.js`.
  * Do not manually edit.
